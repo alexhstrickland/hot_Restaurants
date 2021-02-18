@@ -87,7 +87,36 @@
 
             for (let i=0; i<tableList.length; i++) {
                 console.log(tableList[i]);
-                tableEl.append(`<li class="list-group-item mt-4"><h2>Table #${i+1}</h2><hr><h2>ID: ${tableList[i].ID}</h2><h2>Name: ${tableList[i].name}</h2><h2>Email: ${tableList[i].email}</h2><h2>Phone: ${tableList[i].phone}</h2></li>`)}
+                const tableEl = document.getElementById("tableList");
+
+                const list = document.createElement('li');
+                list.classList.add('list-group-item mt-4');
+
+                const tableNum = document.createElement('h2');
+                tableNum.textContent = tableList[i + 1];
+
+                const name = document.createElement('h2');
+                name.textContent = tableList[i].name;
+
+                const email = document.createElement('h2');
+                email.textContent = tableList[i].email;
+
+                const phone = document.createElement('h2');
+                phone.textContent = tableList[i].phone;
+
+                const id = document.createElement('h2');
+                id.textContent = tableList[i].uniqueID;
+
+
+                list.appendChild(tableNum)
+                list.appendChild(name)
+                list.appendChild(email)
+                list.appendChild(phone)
+                list.appendChild(id)
+
+                tableEl.appendChild(list);
+
+            }
         })
         .catch((error) => {
             console.log(error);
