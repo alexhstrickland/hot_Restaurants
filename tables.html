@@ -121,6 +121,53 @@
         .catch((error) => {
             console.log(error);
         });
+        fetch(`/api/tables`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            const waitList = data;
+
+            for (let i=0; i<waitList.length; i++) {
+                console.log(i);
+                const tableEl = document.getElementById("waitList");
+
+                const list = document.createElement('li');
+                list.classList.add('list-group-item', 'mt-4');
+
+                const tableNum = document.createElement('h2');
+                tableNum.textContent = "Table: " + (i+1);
+
+                const name = document.createElement('h4');
+                name.textContent = "Name: " + waitList[i].name;
+
+                const email = document.createElement('h4');
+                email.textContent = "Email: " + waitList[i].email;
+
+                const phone = document.createElement('h4');
+                phone.textContent = "Phone: " + waitList[i].phone;
+
+                const id = document.createElement('h4');
+                id.textContent = "ID: " + waitList[i].uniqueID;
+
+
+                list.appendChild(tableNum)
+                list.appendChild(name)
+                list.appendChild(email)
+                list.appendChild(phone)
+                list.appendChild(id)
+
+                tableEl.appendChild(list);
+
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        });
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   
