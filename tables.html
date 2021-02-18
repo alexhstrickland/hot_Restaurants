@@ -61,7 +61,7 @@
       </div>
   
   
-      <a href="#" onclick="clearTablesAndWaitlist();">Clear Tables</a>
+      <a href="#" id="clear">Clear Tables</a>
         <span>|</span>
         <a href="/api/tables">API Table Link</a>
         <span>|</span>
@@ -74,6 +74,15 @@
   
   <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
   <script type="text/javascript">
+
+    const clearBtn = document.getElementById("clear");
+
+    clearBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const tables = [];
+        const waitList = [];
+    })
    const tableEl = document.getElementById('tableList');
 
    fetch(`/api/tables`, {
