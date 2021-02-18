@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <title>Hot Restaurant: Home</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <!-- Link to Bootstrap framework -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+
+        <!-- Bootstrap Jumbotron -->
+        <div class="jumbotron" style="text-align: center;">
+            <h1 class="display-4">Hot Restaurant</h1>
+            <hr class="my-4">
+            <h2>Book your seat before they are all gone!</h2>
+            <a class="btn btn-primary btn-lg" href="/tables" role="button">View Tables</a>
+            <a class="btn btn-danger btn-lg" href="/reserve" role="button">Make Reservation</a>
+        </div>
+
+        <a href="#" id="clear">Clear Tables</a>
+        <span>|</span>
+        <a href="/api/tables">API Table Link</a>
+        <span>|</span>
+        <a href="/api/waitlist">API Wait List</a>
+    </body>
+
+    <script type="text/javascript">
+        const clearBtn = document.getElementById("clear");
+
+        clearBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            tables = [];
+            waitList = [];
+        })
+        
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</html>
