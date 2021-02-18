@@ -55,9 +55,6 @@
                 </div>
             </div>
         </main>
-
-        <a href="#" onclick="clearTablesAndWaitlist();">Clear Tables</a>
-        <span>|</span>
         <a href="/api/tables">API Table Link</a>
         <span>|</span>
         <a href="/api/waitlist">API Wait List</a>
@@ -65,15 +62,10 @@
         <script type="text/javascript">
       
             const submitBtn = document.getElementById('submit');
-            
-            // iterator
-            let occupied = 0;
 
-            // Question: What is "e" short for?
+            // event listener to add reservation to list
             submitBtn.addEventListener('click', (e) => {
               e.preventDefault();
-              
-              occupied+=1;
 
               let name = document.getElementById('name-input').value.trim();
               let phoneNumber = document.getElementById('phone-input').value.trim();
@@ -86,12 +78,8 @@
                 email: email,
                 uniqueID: uniqueID
               };
-
-              
-      
-              // Question: What does this code do??
-
             
+              // call to get table information from api
             fetch('/api/tables', {
                 method: 'POST',
                 headers: {
@@ -102,7 +90,7 @@
                 .then((response) => response.json())
                 .then((data) => {
                   console.log('reserve.html', data);
-                  alert(`Adding table: ${data.name}`);
+                    alert(`Adding table: ${data.name}`);
                 })
                 .catch((error) => {
                   console.error('Error:', error);

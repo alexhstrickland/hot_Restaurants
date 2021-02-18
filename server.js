@@ -4,9 +4,8 @@ const express = require('express');
 const path = require('path');
 
 // Sets up the Express App
-
 const app = express();
-const PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT || 3040;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -16,10 +15,6 @@ app.use(express.json());
 const tables = [];
 const waitList = [];
 
-function clearTablesAndWaitlist() {
-    tables = [];
-    waitList = [];
-}
 
 // routes
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'home.html')));
@@ -40,7 +35,7 @@ app.post('/api/tables', (req, res) => {
     console.log(newReservation);
 
     console.log(tables.length);
-
+    // if statement to decide whether to add to reservation list or waitlist based on length of reservation list
     if(tables.length < 5){
         tables.push(newReservation);
         res.json(newReservation);

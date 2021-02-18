@@ -61,8 +61,6 @@
       </div>
   
   
-      <a href="#" id="clear">Clear Tables</a>
-        <span>|</span>
         <a href="/api/tables">API Table Link</a>
         <span>|</span>
         <a href="/api/waitlist">API Wait List</a>
@@ -75,16 +73,9 @@
   <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
   <script type="text/javascript">
 
-    const clearBtn = document.getElementById("clear");
-
-    clearBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        const tables = [];
-        const waitList = [];
-    })
    const tableEl = document.getElementById('tableList');
-
+   
+   // call to get table data
    fetch(`/api/tables`, {
         method: 'GET',
         headers: {
@@ -96,6 +87,7 @@
             console.log(data);
             const tableList = data;
 
+            //for loop to add each table to reservation list
             for (let i=0; i<tableList.length; i++) {
                 console.log(i);
                 const tableEl = document.getElementById("tableList");
@@ -132,7 +124,9 @@
         .catch((error) => {
             console.log(error);
         });
-        fetch(`/api/tables`, {
+
+        // call to get waitlist data
+        fetch(`/api/waitList`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -143,6 +137,7 @@
             console.log(data);
             const waitList = data;
 
+            // for loop to add each table to waitlist list
             for (let i=0; i<waitList.length; i++) {
                 console.log(i);
                 const tableEl = document.getElementById("waitList");
