@@ -86,26 +86,26 @@
             const tableList = data;
 
             for (let i=0; i<tableList.length; i++) {
-                console.log(tableList[i]);
+                console.log(i);
                 const tableEl = document.getElementById("tableList");
 
                 const list = document.createElement('li');
-                list.classList.add('list-group-item mt-4');
+                list.classList.add('list-group-item', 'mt-4');
 
                 const tableNum = document.createElement('h2');
-                tableNum.textContent = tableList[i + 1];
+                tableNum.textContent = "Table: " + (i+1);
 
-                const name = document.createElement('h2');
-                name.textContent = tableList[i].name;
+                const name = document.createElement('h4');
+                name.textContent = "Name: " + tableList[i].name;
 
-                const email = document.createElement('h2');
-                email.textContent = tableList[i].email;
+                const email = document.createElement('h4');
+                email.textContent = "Email: " + tableList[i].email;
 
-                const phone = document.createElement('h2');
-                phone.textContent = tableList[i].phone;
+                const phone = document.createElement('h4');
+                phone.textContent = "Phone: " + tableList[i].phone;
 
-                const id = document.createElement('h2');
-                id.textContent = tableList[i].uniqueID;
+                const id = document.createElement('h4');
+                id.textContent = "ID: " + tableList[i].uniqueID;
 
 
                 list.appendChild(tableNum)
